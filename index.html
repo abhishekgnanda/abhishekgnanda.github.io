@@ -35,22 +35,28 @@
       }
     </style>
     <script type="text/javascript">
+      function randomize() {
+        var h = "";
+        for (var i = 0; i < 1200; i += 25) {
+          for (var j = 0; j < 600; j += 75) {
+            var i2 = i + 25;
+            var j2 = j + 75;
+            var c = '';
+            while (c.length == 0) {
+              c = $(`#${Math.floor(Math.random() * 8)}`).val();
+            }
+            h += `<polygon points="${i},${j} ${i},${j2} ${i2},${j2} ${i2},${j}" fill="${c}"/>`;
+          }
+        }
+        $('#canvas').html(h);
+      }
+
       $(function() {
         $('#random').click(function() {
-          var h = "";
-          for (var i = 0; i < 1200; i += 25) {
-            for (var j = 0; j < 600; j += 75) {
-              var i2 = i + 25;
-              var j2 = j + 75;
-              var c = '';
-              while (c.length == 0) {
-                c = $(`#${Math.floor(Math.random() * 8)}`).val();
-              }
-              h += `<polygon points="${i},${j} ${i},${j2} ${i2},${j2} ${i2},${j}" fill="${c}"/>`;
-            }
-          }
-          $('#canvas').html(h);
+          randomize();
         });
+
+        randomize();
       });
     </script>
   </head>
