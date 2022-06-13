@@ -85,14 +85,15 @@
           wave();
         });
 
-        $('#0').wheelColorPicker();
-        $('#1').wheelColorPicker();
-        $('#2').wheelColorPicker();
-        $('#3').wheelColorPicker();
-        $('#4').wheelColorPicker();
-        $('#5').wheelColorPicker();
-        $('#6').wheelColorPicker();
-        $('#7').wheelColorPicker();
+        for (var i = 0; i < 8; i++) {
+          $(`#${i}`).wheelColorPicker();
+
+          $(`#${i}`).change(function() {
+            $(`#d${this.id}`).css("background-color", '#' + $(`#${this.id}`).val());
+          });
+
+          $(`#d${i}`).css("background-color", '#' + $(`#${i}`).val());
+        }
 
         randomize();
       });
@@ -105,41 +106,49 @@
         <div class="col col-1">
           <input type="text" id="0" class="form-control" value="ff6961" placeholder="Color 1">
         </div>
+        <div class="col-1" id="d0"></div>
       </div>
       <div class="row mb-1 g-1">
         <div class="col col-1">
           <input type="text" id="1" class="form-control" value="ffb480" placeholder="Color 2">
         </div>
+        <div class="col-1" id="d1"></div>
       </div>
       <div class="row mb-1 g-1">
         <div class="col col-1">
           <input type="text" id="2" class="form-control" value="ffb480" placeholder="Color 3">
         </div>
+        <div class="col-1" id="d2"></div>
       </div>
       <div class="row mb-1 g-1">
         <div class="col col-1">
           <input type="text" id="3" class="form-control" value="42d6a4" placeholder="Color 4">
         </div>
+        <div class="col-1" id="d3"></div>
       </div>
       <div class="row mb-1 g-1">
         <div class="col col-1">
           <input type="text" id="4" class="form-control" value="08cad1" placeholder="Color 5">
         </div>
+        <div class="col-1" id="d4"></div>
       </div>
       <div class="row mb-1 g-1">
         <div class="col col-1">
           <input type="text" id="5" class="form-control" value="59adf6" placeholder="Color 6">
         </div>
+        <div class="col-1" id="d5"></div>
       </div>
       <div class="row mb-1 g-1">
         <div class="col col-1">
           <input type="text" id="6" class="form-control" value="9d94ff" placeholder="Color 7">
         </div>
+        <div class="col-1" id="d6"></div>
       </div>
       <div class="row mb-1 g-1">
         <div class="col col-1">
           <input type="text" id="7" class="form-control" value="c780e8" placeholder="Color 8">
         </div>
+        <div class="col-1" id="d7"></div>
       </div>
     </div>
 
