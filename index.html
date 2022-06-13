@@ -14,7 +14,8 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vanilla-picker@2"></script>
+    <script type="text/javascript" src="wheelcolorpicker.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="wheelcolorpicker.css" />
     <style>
       .img-overlay-wrap {
         position: relative;
@@ -45,7 +46,7 @@
             while (c.length == 0) {
               c = $(`#${Math.floor(Math.random() * 8)}`).val();
             }
-            h += `<polygon points="${i},${j} ${i},${j2} ${i2},${j2} ${i2},${j}" fill="${c}"/>`;
+            h += `<polygon points="${i},${j} ${i},${j2} ${i2},${j2} ${i2},${j}" fill="#${c}"/>`;
           }
         }
         $('#canvas').html(h);
@@ -56,6 +57,15 @@
           randomize();
         });
 
+        $('#0').wheelColorPicker();
+        $('#1').wheelColorPicker();
+        $('#2').wheelColorPicker();
+        $('#3').wheelColorPicker();
+        $('#4').wheelColorPicker();
+        $('#5').wheelColorPicker();
+        $('#6').wheelColorPicker();
+        $('#7').wheelColorPicker();
+
         randomize();
       });
     </script>
@@ -63,50 +73,50 @@
 
   <body>
     <div class="container mt-2">
-      <div class="row mb-1">
-        <div class="col col-2">
-          <input type="text" id="0" class="form-control" value="#F0A202" placeholder="Color 1">
+      <div class="row mb-1 g-1">
+        <div class="col col-1">
+          <input type="text" id="0" class="form-control" value="F0A202" placeholder="Color 1">
         </div>
       </div>
-      <div class="row mb-1">
-        <div class="col col-2">
-          <input type="text" id="1" class="form-control" value="#F18805" placeholder="Color 2">
+      <div class="row mb-1 g-1">
+        <div class="col col-1">
+          <input type="text" id="1" class="form-control" value="F18805" placeholder="Color 2">
         </div>
       </div>
-      <div class="row mb-1">
-        <div class="col col-2">
-          <input type="text" id="2" class="form-control" value="#D95D39" placeholder="Color 3">
+      <div class="row mb-1 g-1">
+        <div class="col col-1">
+          <input type="text" id="2" class="form-control" value="D95D39" placeholder="Color 3">
         </div>
       </div>
-      <div class="row mb-1">
-        <div class="col col-2">
-          <input type="text" id="3" class="form-control" value="#202C59" placeholder="Color 4">
+      <div class="row mb-1 g-1">
+        <div class="col col-1">
+          <input type="text" id="3" class="form-control" value="202C59" placeholder="Color 4">
         </div>
       </div>
-      <div class="row mb-1">
-        <div class="col col-2">
-          <input type="text" id="4" class="form-control" value="#581F18" placeholder="Color 5">
+      <div class="row mb-1 g-1">
+        <div class="col col-1">
+          <input type="text" id="4" class="form-control" value="581F18" placeholder="Color 5">
         </div>
       </div>
-      <div class="row mb-1">
-        <div class="col col-2">
+      <div class="row mb-1 g-1">
+        <div class="col col-1">
           <input type="text" id="5" class="form-control" placeholder="Color 6">
         </div>
       </div>
-      <div class="row mb-1">
-        <div class="col col-2">
+      <div class="row mb-1 g-1">
+        <div class="col col-1">
           <input type="text" id="6" class="form-control" placeholder="Color 7">
         </div>
       </div>
-      <div class="row mb-1">
-        <div class="col col-2">
+      <div class="row mb-1 g-1">
+        <div class="col col-1">
           <input type="text" id="7" class="form-control" placeholder="Color 8">
         </div>
       </div>
     </div>
 
     <div class="container">
-      <div class="row mb-1">
+      <div class="row mb-1 g-1">
         <div class="col col-2">
           <button type="button" id="random" class="btn btn-primary">Random</button>
         </div>
