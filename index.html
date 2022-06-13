@@ -60,6 +60,9 @@
             colors.push(c);
           }
         }
+        for (var i = colors.length - 2; i > 0; i--) {
+          colors.push(colors[i]);
+        }
         var nc = colors.length;
         var h = "";
         for (var i = 0, ii = 0; i < 1200; i += 25, ii++) {
