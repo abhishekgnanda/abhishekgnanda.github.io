@@ -52,9 +52,34 @@
         $('#canvas').html(h);
       }
 
+      function wave() {
+        var colors = [];
+        for (var i = 0; i < 8; i++) {
+          var c = $(`#${i}`).val();
+          if (c.length > 0) {
+            colors.push(c);
+          }
+        }
+        var nc = colors.length;
+        var h = "";
+        for (var i = 0, ii = 0; i < 1200; i += 25, ii++) {
+          for (var j = 0, jj = 0; j < 600; j += 75, jj++) {
+            var i2 = i + 25;
+            var j2 = j + 75;
+            var c = colors[(ii+jj)%nc];
+            h += `<polygon points="${i},${j} ${i},${j2} ${i2},${j2} ${i2},${j}" fill="#${c}"/>`;
+          }
+        }
+        $('#canvas').html(h);
+      }
+
       $(function() {
         $('#random').click(function() {
           randomize();
+        });
+
+        $('#wave').click(function() {
+          wave();
         });
 
         $('#0').wheelColorPicker();
@@ -117,8 +142,11 @@
 
     <div class="container">
       <div class="row mb-1 g-1">
-        <div class="col col-2">
+        <div class="col col-1">
           <button type="button" id="random" class="btn btn-primary">Random</button>
+        </div>
+        <div class="col col-1">
+          <button type="button" id="wave" class="btn btn-primary">Wave</button>
         </div>
       </div>
     </div>
